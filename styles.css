@@ -9,11 +9,14 @@ body {
     font-family: var(--font-main);
     font-size: 1em;
     overflow: auto;
+    min-height: 100vh;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -434,7 +437,7 @@ nav {
   position: relative;
   width: 100%;
   max-width: 76vw;
-  margin: 80px auto;
+  margin: 60px;
   text-align: center;
 }
 
@@ -457,22 +460,23 @@ nav {
 }
 
 .site-footer {
-  bottom:0;
+
   width: 100vw;
   height: 90px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 120px;
+  margin-top: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  bottom:0;
 }
 
 .footer-content {
   width: 76vw;
-  max-width: 1600px;
+  max-width: 100%;
   margin: 0 12%;
   display: flex;
   align-items: center;
@@ -690,6 +694,10 @@ nav {
 
     .case-study-hero-left {
         max-width: 100%;
+    }
+
+        .case-study-hero-right {
+        width: 100%;
     }
 
     .case-study-logistics {
@@ -923,8 +931,10 @@ nav {
         }
 
         .container {
+            flex: 1;
             margin: 0 12%;
-            padding-bottom: 60px;
+            /* padding-bottom: 60px; */
+            height: calc(100vh - 90px - 60px);
         }
 
 
@@ -1127,6 +1137,9 @@ nav {
         .ui-project {
             max-width: 900px;
             margin: 0 auto 120px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .ui-project h2 {
@@ -1134,6 +1147,13 @@ nav {
             font-weight: 600;
             margin-bottom: 16px;
             color: #333;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .ui-text {
+           display: flex;
+           flex-direction: column;
         }
 
         .ui-project-description {
@@ -1144,13 +1164,16 @@ nav {
         }
 
         .ui-image-container {
+            width: 100%;
+            max-width: 30%;
             position: relative;
             margin-bottom: 20px;
         }
 
         .ui-image-container img {
             width: 100%;
-            border-radius: 16px;
+            height: auto;
+            border-radius: 12px;
             display: block;
         }
 
@@ -1163,13 +1186,6 @@ nav {
             font-style: italic;
             margin-top: 12px;
             display: inline-block;
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 24px;
         }
 
         @media (max-width: 768px) {
@@ -1189,7 +1205,246 @@ nav {
                 font-size: 1.6em;
             }
 
-            .image-grid {
-                grid-template-columns: 1fr;
-            }
         }
+
+
+
+
+
+/* newww */
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    margin-bottom: 80px;
+}
+
+.project-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    aspect-ratio: 1.167 / 0.8; /* Maintains consistent proportions */
+}
+
+.project-bg {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    border-radius: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Mobile breakpoint for vertical stack */
+@media (max-width: 900px) {
+    .project-list {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 20px 0;
+}
+
+.about-list li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 12px;
+    line-height: 1.7;
+    text-indent: 0;
+    display: list-item;
+}
+
+.about-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #b5ade1;
+    font-size: 0.9em;
+}
+
+/* Responsive nav adjustments */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 12%;
+}
+
+@media (max-width: 1200px) {
+    nav {
+        padding: 12px 6%;
+    }
+    
+    .container {
+        margin: 0 6%;
+    }
+
+    .site-footer {
+      margin-left: 0;
+      margin-right: 0;
+      padding: 12px 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-right {
+        gap: 24px;
+    }
+}
+
+#about-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+    margin-top: 160px;
+}
+
+#about-flex img {
+    width: 45%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 18px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+    #about-flex {
+        gap: 48px;
+    }
+    
+    #about-flex img {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    #about-flex {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 32px;
+        margin-top: 120px;
+    }
+    
+    #about-flex img {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    #about-flex .about-text {
+        width: 100%;
+    }
+}
+
+/* UI Challenge layouts */
+.ui-project {
+    max-width: 1100px;
+    margin: 0 auto 120px auto;
+}
+
+.ui-project.georgia-tech .ui-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.ui-project.georgia-tech .ui-images {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.ui-project.georgia-tech .ui-images img {
+    flex: 1;
+    max-width: 33%;
+}
+
+.ui-project.google-doodle .ui-content {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: center;
+}
+
+.ui-project.google-doodle .ui-text {
+    flex: 1;
+    width: 90%;
+}
+
+.ui-project.google-doodle .ui-image-container {
+    flex: 1;
+    max-width: 25%;
+}
+
+.ui-project.google-doodle .ui-image-container img {
+    width: 100%;
+}
+
+.ui-project.rabbit-haven .ui-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.ui-project.rabbit-haven .ui-images {
+    max-width: 100%;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.ui-project.rabbit-haven .ui-images > * {
+    flex: 1;
+}
+
+.ui-project.rabbit-haven .iframe-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.ui-project.rabbit-haven iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+/* Hide Figma UI elements */
+.ui-project iframe {
+    border: none !important;
+}
+
+/* Responsive for UI challenges */
+@media (max-width: 900px) {
+    .ui-project.georgia-tech .ui-images,
+    .ui-project.rabbit-haven .ui-images {
+        flex-direction: column;
+    }
+    
+    .ui-project.georgia-tech .ui-images img {
+        max-width: 100%;
+    }
+    
+    .ui-project.google-doodle .ui-content {
+        flex-direction: column;
+    }
+    
+    .ui-project.google-doodle .ui-image-container {
+        max-width: 100%;
+    }
+}
