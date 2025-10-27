@@ -1013,6 +1013,33 @@ nav {
             margin-bottom: 8px;
         }
 
+
+        .persona-cards {
+            background: linear-gradient(135deg, #faf9ff 0%, #f3f2fd 100%);
+            border-left: 4px solid var(--accent-purple);
+            padding: 24px 28px;
+            margin: 28px 0;
+            border-radius: 8px;
+            margin-left: -10%;
+            margin-right: -10%;
+        }
+
+        .persona-cards p {
+            margin: 0;
+        }
+        
+        .person-cards ul {
+            padding-bottom: -12px;
+        }
+
+        .persona {
+            font-weight: 700;
+            color: #7a6ba8;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
         .quote-box {
             background: #fff;
             border-left: 4px solid #9e8dcc;
