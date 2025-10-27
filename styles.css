@@ -968,8 +968,13 @@ nav {
 
         .case-study-body img {
             width: 100%;
+            height: auto;
+  max-width: 100%;
+
             border-radius: 12px;
             margin: 32px 0;
+            object-fit: contain;
+
         }
 
         .case-study-body ul {
@@ -1454,6 +1459,7 @@ nav {
 /* Hide Figma UI elements */
 .ui-project iframe {
     border: none !important;
+    background: transparent;
 }
 
 /* Responsive for UI challenges */
@@ -1474,4 +1480,136 @@ nav {
     .ui-project.google-doodle .ui-image-container {
         max-width: 100%;
     }
+}
+
+.biblio-prototype-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 60px;
+}
+
+.biblio-prototype-embed iframe {
+  width: 80%;
+  height: 612px;
+  border: none;
+  border-radius: 48px;
+  background: none;
+  
+}
+
+.biblio-prototype-embed {
+  background: transparent;
+}
+
+@media (max-width: 908px) {
+  .biblio-prototype-section {
+    grid-template-columns: 1fr;
+  }
+
+  .biblio-prototype-embed iframe {
+    height: 612px;
+  }
+}
+
+
+.rabbit-prototype-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background-color: #f3f2fd;
+  border-radius: 16px;
+  padding: 40px;
+  align-items: center;
+}
+
+
+.rabbit-original img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+
+@media (max-width: 768px) {
+  .rabbit-prototype-section {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .rabbit-prototype iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    display: none;
+  }
+
+  .nav-right {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    flex-direction: column;
+    height: auto;
+    padding: 24px 0;
+    align-items: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: left;
+    gap: 12px;
+    width: 90vw;
+    margin: 0 auto;
+    text-align: left;
+  }
+}
+
+
+.bunny-pic {
+  position: relative;
+  text-decoration: underline 2px solid #b5ade1;
+  cursor: pointer;
+}
+
+.bunny-pic {
+  position: relative;
+  text-decoration: underline 2px solid #b5ade1;
+    cursor: pointer;
+    color: #7a6ba8;
+}
+
+.bunny-overlay {
+  position: absolute;
+  display: none;
+  width: 160px;
+  height: auto;
+  border-radius: 12px;
+  margin-left: 90%;
+  margin-top: -70%;
+  /* top: -50px;
+  right: 20%; */
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 480px) {
+  .bunny-overlay {
+    width: 40px;
+    margin-left: 0;
+    margin-top: 0;
+    /* margin-left: 50%;
+    margin-top: -70%; */
+  }
+}
+
+.bunny-pic:hover + .bunny-overlay,
+.bunny-pic:focus + .bunny-overlay {
+  display: block;
 }
